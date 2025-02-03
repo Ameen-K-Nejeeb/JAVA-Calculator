@@ -10,6 +10,10 @@ import javax.swing.SwingConstants;
 
 public class Calculator implements ActionListener {
 
+    double firstnumber;
+    double secondnumber,result;
+    String operator;
+
     // Here [ JFrame jf ] is globel
     JFrame jf;
 
@@ -248,8 +252,6 @@ public class Calculator implements ActionListener {
             displayLabel.setText(displayLabel.getText()+"8");
         }else if(e.getSource() == nineButton){
             displayLabel.setText(displayLabel.getText()+"9");
-        }else if(e.getSource() == divitionButton){
-            displayLabel.setText("/");
 
 
         }else if(e.getSource() == fourButton){
@@ -258,9 +260,7 @@ public class Calculator implements ActionListener {
             displayLabel.setText(displayLabel.getText()+"5");
         }else if(e.getSource() == sixButton){
             displayLabel.setText(displayLabel.getText()+"6");
-        }else if(e.getSource() == multiplicationButton){
-            displayLabel.setText("x");
-
+        
 
         }else if(e.getSource() == oneButton){
             displayLabel.setText(displayLabel.getText()+"1");
@@ -268,19 +268,16 @@ public class Calculator implements ActionListener {
             displayLabel.setText(displayLabel.getText()+"2");
         }else if(e.getSource() == threeButton){
             displayLabel.setText(displayLabel.getText()+"3");
-        }else if(e.getSource() == substractionButton){
-            displayLabel.setText("-");
+        
 
         
         }else if(e.getSource() == dotButton){
-            displayLabel.setText(".");
+            if(!displayLabel.getText().contains(".")){
+                displayLabel.setText(displayLabel.getText()+".");
+            }
+
         }else if(e.getSource() == zeroButton){
             displayLabel.setText(displayLabel.getText()+"0");
-        }else if(e.getSource() == equalButton){
-            displayLabel.setText("=");
-        }else if(e.getSource() == plusButton){
-            displayLabel.setText("+");
-
 
         }else if(e.getSource() == squareButton){
             displayLabel.setText("");
@@ -291,6 +288,47 @@ public class Calculator implements ActionListener {
         }else if(e.getSource() == clearButton){
             displayLabel.setText("");
         }
+
+
+        else if(e.getSource() == divitionButton){
+            firstnumber = Double.parseDouble(displayLabel.getText());
+            operator = "/";
+            displayLabel.setText("");
+        }else if (e.getSource() == multiplicationButton){
+            firstnumber = Double.parseDouble(displayLabel.getText());
+            operator = "x";
+            displayLabel.setText("");
+        }else if (e.getSource() == substractionButton){
+            firstnumber = Double.parseDouble(displayLabel.getText());
+            operator = "-";
+            displayLabel.setText("");
+        }else if (e.getSource() == plusButton){
+            firstnumber = Double.parseDouble(displayLabel.getText());
+            operator = "+";
+            displayLabel.setText("");
+        }
+        else if (e.getSource() == equalButton){
+            secondnumber = Double.parseDouble(displayLabel.getText());
+            switch(operator){
+                case "+":
+                    result = firstnumber + secondnumber;
+                    break;
+                case "-":
+                    result = firstnumber - secondnumber;
+                    break;
+                case "x":
+                    result = firstnumber * secondnumber;
+                    break;
+                case "/":
+                    if(secondnumber == 0){
+                        displayLabel.setText("error");
+                        return;
+                    } else {
+                        result = firstnumber / secondnumber;
+                    }
+                    break;
+            }
+            displayLabel.setText(String.valueOf(result));
+        }
     }
-    
 }
