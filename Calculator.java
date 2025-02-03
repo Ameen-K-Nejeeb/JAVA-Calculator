@@ -10,9 +10,6 @@ import javax.swing.SwingConstants;
 
 public class Calculator implements ActionListener {
 
-    double firstnumber;
-    double secondnumber,result;
-    String operator;
 
     // Here [ JFrame jf ] is globel
     JFrame jf;
@@ -246,96 +243,79 @@ public class Calculator implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == sevenButton){
-            displayLabel.setText(displayLabel.getText()+"7");
-        }else if(e.getSource() == eightButton){
-            displayLabel.setText(displayLabel.getText()+"8");
-        }else if(e.getSource() == nineButton){
-            displayLabel.setText(displayLabel.getText()+"9");
 
-
-        }else if(e.getSource() == fourButton){
-            displayLabel.setText(displayLabel.getText()+"4");
-        }else if(e.getSource() == fiveButton){
-            displayLabel.setText(displayLabel.getText()+"5");
-        }else if(e.getSource() == sixButton){
-            displayLabel.setText(displayLabel.getText()+"6");
-        
-
-        }else if(e.getSource() == oneButton){
-            displayLabel.setText(displayLabel.getText()+"1");
-        }else if(e.getSource() == twoButton){
-            displayLabel.setText(displayLabel.getText()+"2");
-        }else if(e.getSource() == threeButton){
-            displayLabel.setText(displayLabel.getText()+"3");
-        
-
-        
-        }else if(e.getSource() == dotButton){
-            if(!displayLabel.getText().contains(".")){
-                displayLabel.setText(displayLabel.getText()+".");
-            }
-
-        }else if(e.getSource() == zeroButton){
-            displayLabel.setText(displayLabel.getText()+"0");
-
-        }else if(e.getSource() == CEButton){
-            displayLabel.setText("");
-        }else if(e.getSource() == CButton){
-            displayLabel.setText("");
-        }else if(e.getSource() == clearButton){
-            displayLabel.setText("");
+        String buttonText = ((JButton) e.getSource()).getText();
+        switch (buttonText) {
+            case "7":
+            case "8":
+            case "9":
+            case "4":
+            case "5":
+            case "6":
+            case "1":
+            case "2":
+            case "3":
+            case "0":
+            case ".":
+                displayLabel.setText(displayLabel.getText() + buttonText);
+                break;
+            case "/":
+                displayLabel.setText(displayLabel.getText() + buttonText);
+                break;
+            case "X":
+            case "-":
+            case "+":
+                displayLabel.setText(displayLabel.getText() + buttonText);
+                break;
+            case "=":
+                String Result = Calcular(displayLabel.getText());
+                displayLabel.setText(Result);
+                break;
+            case "x²":
+                String currentText = displayLabel.getText();
+                if (!currentText.isEmpty()) {
+                    double number = Double.parseDouble(currentText);
+                    double squared = number * number;
+                    displayLabel.setText(String.valueOf(squared));
+                }
+                break;
+            case "CE":
+            case "C":
+            case "<-":
+                displayLabel.setText("");
+                break;
         }
+    }
+    private String Calcular(String calculo){
+        int result = 0;
+        if(calculo.contains("/")){
+            String[] parts = calculo.split("/");
 
+            int numerator = Integer.parseInt(parts[0]);
+            int denominator = Integer.parseInt(parts[1]);
 
-        else if(e.getSource() == divitionButton){
-            firstnumber = Double.parseDouble(displayLabel.getText());
-            operator = "/";
-            displayLabel.setText("");
-        }else if (e.getSource() == multiplicationButton){
-            firstnumber = Double.parseDouble(displayLabel.getText());
-            operator = "x";
-            displayLabel.setText("");
-        }else if (e.getSource() == substractionButton){
-            firstnumber = Double.parseDouble(displayLabel.getText());
-            operator = "-";
-            displayLabel.setText("");
-        }else if (e.getSource() == plusButton){
-            firstnumber = Double.parseDouble(displayLabel.getText());
-            operator = "+";
-            displayLabel.setText("");
-        }else if (e.getSource() == squareButton){
-            firstnumber = Double.parseDouble(displayLabel.getText());
-            operator = "x²";
-            displayLabel.setText("");
+            result = numerator / denominator;
+
+            return String.valueOf(result);
         }
-        else if (e.getSource() == equalButton){
-            secondnumber = Double.parseDouble(displayLabel.getText());
-            switch(operator){
-                case "+":
-                    result = firstnumber + secondnumber;
-                    break;
-                case "-":
-                    result = firstnumber - secondnumber;
-                    break;
-                case "x":
-                    result = firstnumber * secondnumber;
-                    break;
-                case "x²":
-                    secondnumber = firstnumber;
-                    result = firstnumber*secondnumber;
-                    break;
-                case "/":
-                    if(secondnumber == 0){
-                        displayLabel.setText("error");
-                        return;
-                    } else {
-                        result = firstnumber / secondnumber;
-                    }
-                    break;
-                
-            }firstnumber = result;
-            displayLabel.setText(String.valueOf(result));
+        if(calculo.contains("-")){
+            String[] parts = calculo.split("-");
+            int numerator = Integer.parseInt(parts[0]);
+            int denominator = Integer.parseInt(parts[1]);
+            result = numerator - denominator;
         }
+        if(calculo.contains("X")){
+            String[] parts = calculo.split("X");
+            int numerator = Integer.parseInt(parts[0]);
+            int denominator = Integer.parseInt(parts[1]);
+            result = numerator * denominator;
+        }
+        if(calculo.contains("+")){
+            String[] parts = calculo.split("\\+");
+            int numerator = Integer.parseInt(parts[0]);
+            int denominator = Integer.parseInt(parts[1]);
+            result = numerator + denominator;
+        }
+        return String.valueOf(result);
     }
 }
