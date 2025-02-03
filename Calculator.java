@@ -279,8 +279,6 @@ public class Calculator implements ActionListener {
         }else if(e.getSource() == zeroButton){
             displayLabel.setText(displayLabel.getText()+"0");
 
-        }else if(e.getSource() == squareButton){
-            displayLabel.setText("");
         }else if(e.getSource() == CEButton){
             displayLabel.setText("");
         }else if(e.getSource() == CButton){
@@ -306,6 +304,10 @@ public class Calculator implements ActionListener {
             firstnumber = Double.parseDouble(displayLabel.getText());
             operator = "+";
             displayLabel.setText("");
+        }else if (e.getSource() == squareButton){
+            firstnumber = Double.parseDouble(displayLabel.getText());
+            operator = "x²";
+            displayLabel.setText("");
         }
         else if (e.getSource() == equalButton){
             secondnumber = Double.parseDouble(displayLabel.getText());
@@ -318,6 +320,10 @@ public class Calculator implements ActionListener {
                     break;
                 case "x":
                     result = firstnumber * secondnumber;
+                    break;
+                case "x²":
+                    secondnumber = firstnumber;
+                    result = firstnumber*secondnumber;
                     break;
                 case "/":
                     if(secondnumber == 0){
