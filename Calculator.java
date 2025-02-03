@@ -249,7 +249,7 @@ public class Calculator implements ActionListener {
         }else if(e.getSource() == nineButton){
             displayLabel.setText(displayLabel.getText()+"9");
         }else if(e.getSource() == divitionButton){
-            displayLabel.setText(displayLabel.getText()+"/");
+            displayLabel.setText("/");
 
 
         }else if(e.getSource() == fourButton){
@@ -259,7 +259,7 @@ public class Calculator implements ActionListener {
         }else if(e.getSource() == sixButton){
             displayLabel.setText(displayLabel.getText()+"6");
         }else if(e.getSource() == multiplicationButton){
-            displayLabel.setText(displayLabel.getText()+"x");
+            displayLabel.setText("x");
 
 
         }else if(e.getSource() == oneButton){
@@ -269,17 +269,17 @@ public class Calculator implements ActionListener {
         }else if(e.getSource() == threeButton){
             displayLabel.setText(displayLabel.getText()+"3");
         }else if(e.getSource() == substractionButton){
-            displayLabel.setText(displayLabel.getText()+"-");
+            displayLabel.setText(+"-");
 
         
         }else if(e.getSource() == dotButton){
-            displayLabel.setText(displayLabel.getText()+".");
+            displayLabel.setText(".");
         }else if(e.getSource() == zeroButton){
             displayLabel.setText(displayLabel.getText()+"0");
         }else if(e.getSource() == equalButton){
             displayLabel.setText("=");
         }else if(e.getSource() == plusButton){
-            displayLabel.setText(displayLabel.getText()+"+");
+            displayLabel.setText("+");
 
 
         }else if(e.getSource() == squareButton){
