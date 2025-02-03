@@ -269,7 +269,7 @@ public class Calculator implements ActionListener {
         }else if(e.getSource() == threeButton){
             displayLabel.setText(displayLabel.getText()+"3");
         }else if(e.getSource() == substractionButton){
-            displayLabel.setText(+"-");
+            displayLabel.setText("-");
 
         
         }else if(e.getSource() == dotButton){
