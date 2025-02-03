@@ -1,14 +1,20 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 
-public class Calculator {
+public class Calculator implements ActionListener {
+
+    // Here [ JFrame jf ] is globel
+    JFrame jf;
+
     public Calculator() {
-        JFrame jf = new JFrame("Calculator");
+        jf = new JFrame("Calculator");
         jf.setLayout(null);
         jf.setSize(600, 700);
         jf.setLocation(300, 150);
@@ -130,6 +136,7 @@ public class Calculator {
         jf.add(equalButton);
         equalButton.setFont(new Font("Arial",Font.BOLD,30));
         equalButton.setBackground(Color.GRAY);
+        equalButton.addActionListener(this);
 
 
 
@@ -142,6 +149,11 @@ public class Calculator {
 
     public static void main(String[] args) {
         new Calculator();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        jf.getContentPane().setBackground(Color.CYAN);
     }
     
 }
