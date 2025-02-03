@@ -333,7 +333,8 @@ public class Calculator implements ActionListener {
                         result = firstnumber / secondnumber;
                     }
                     break;
-            }
+                
+            }firstnumber = result;
             displayLabel.setText(String.valueOf(result));
         }
     }
