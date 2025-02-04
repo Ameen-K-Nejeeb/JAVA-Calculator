@@ -324,7 +324,7 @@ public class Calculator implements ActionListener {
                     break;
                 case "/":
                     if(secondnumber == 0){
-                        displayLabel.setText("error");
+                        displayLabel.setText("---error---");
                         return;
                     } else {
                         result = firstnumber / secondnumber;
