@@ -53,7 +53,7 @@ public class Calculator implements ActionListener {
         jf.setLocation(300, 150);
 
         displayLabel=new JLabel();
-        displayLabel.setBounds(50, 20, 480, 90);
+        displayLabel.setBounds(50, 30, 480, 130);
         jf.add(displayLabel);
         displayLabel.setFont(new Font("Arial",Font.BOLD,40) {
         });
@@ -68,27 +68,27 @@ public class Calculator implements ActionListener {
 
         squareButton = new JButton("x²");
         squareButton.addActionListener(this);
-        squareButton.setBounds(50, 130, 90, 90);
+        squareButton.setBounds(50, 190, 90, 90);
         squareButton.setFont(new Font("Arial",Font.BOLD,30));
         jf.add(squareButton);
         squareButton.setBackground(Color.GRAY);
 
         CEButton=new JButton("CE");
         CEButton.addActionListener(this);
-        CEButton.setBounds(180, 130, 90, 90);
+        CEButton.setBounds(180, 190, 90, 90);
         CEButton.setFont(new Font("Arial",Font.BOLD,30));
         jf.add(CEButton);
         CEButton.setBackground(Color.GRAY);
 
         CButton=new JButton("C");
         CButton.addActionListener(this);
-        CButton.setBounds(310, 130, 90, 90);
+        CButton.setBounds(310, 190, 90, 90);
         CButton.setFont(new Font("Arial",Font.BOLD,30));
         jf.add(CButton);
         CButton.setBackground(Color.GRAY);
 
         clearButton=new JButton("<-");
-        clearButton.setBounds(440, 130, 90, 90);
+        clearButton.setBounds(440, 190, 90, 90);
         clearButton.addActionListener(this);
         clearButton.setFont(new Font("Arial",Font.BOLD,30));
         jf.add(clearButton);
@@ -103,27 +103,27 @@ public class Calculator implements ActionListener {
 
         sevenButton=new JButton("7");
         sevenButton.addActionListener(this);
-        sevenButton.setBounds(50, 260, 90, 90);
+        sevenButton.setBounds(50, 320, 90, 90);
         sevenButton.setFont(new Font("Arial",Font.BOLD,30));
         jf.add(sevenButton);
         sevenButton.setBackground(Color.GRAY);
 
         eightButton=new JButton("8");
         eightButton.addActionListener(this);
-        eightButton.setBounds(180, 260, 90, 90);
+        eightButton.setBounds(180, 320, 90, 90);
         eightButton.setFont(new Font("Arial",Font.BOLD,30));
         jf.add(eightButton);
         eightButton.setBackground(Color.GRAY);
 
         nineButton=new JButton("9");
         nineButton.addActionListener(this);
-        nineButton.setBounds(310, 260, 90, 90);
+        nineButton.setBounds(310, 320, 90, 90);
         nineButton.setFont(new Font("Arial",Font.BOLD,30));
         jf.add(nineButton);
         nineButton.setBackground(Color.GRAY);
 
         divitionButton=new JButton("/");
-        divitionButton.setBounds(440, 260, 90, 90);
+        divitionButton.setBounds(440, 320, 90, 90);
         divitionButton.addActionListener(this);
         divitionButton.setFont(new Font("Arial",Font.BOLD,30));
         jf.add(divitionButton);
@@ -136,21 +136,21 @@ public class Calculator implements ActionListener {
 
 
         fourButton=new JButton("4");
-        fourButton.setBounds(50, 390, 90, 90);
+        fourButton.setBounds(50, 430, 90, 90);
         jf.add(fourButton);
         fourButton.setFont(new Font("Arial",Font.BOLD,30));
         fourButton.setBackground(Color.GRAY);
         fourButton.addActionListener(this);
 
         fiveButton=new JButton("5");
-        fiveButton.setBounds(180, 390, 90, 90);
+        fiveButton.setBounds(180, 430, 90, 90);
         jf.add(fiveButton);
         fiveButton.setFont(new Font("Arial",Font.BOLD,30));
         fiveButton.setBackground(Color.GRAY);
         fiveButton.addActionListener(this);
 
         sixButton=new JButton("6");
-        sixButton.setBounds(310, 390, 90, 90);
+        sixButton.setBounds(310, 430, 90, 90);
         jf.add(sixButton);
         sixButton.setFont(new Font("Arial",Font.BOLD,30));
         sixButton.setBackground(Color.GRAY);
@@ -158,7 +158,7 @@ public class Calculator implements ActionListener {
 
         multiplicationButton=new JButton("X");
         multiplicationButton.addActionListener(this);
-        multiplicationButton.setBounds(440, 390, 90, 90);
+        multiplicationButton.setBounds(440, 430, 90, 90);
         multiplicationButton.setFont(new Font("Arial",Font.BOLD,30));
         jf.add(multiplicationButton);
         multiplicationButton.setBackground(Color.GRAY);
@@ -172,14 +172,14 @@ public class Calculator implements ActionListener {
 
 
         oneButton=new JButton("1");
-        oneButton.setBounds(50, 520, 90, 90);
+        oneButton.setBounds(50, 540, 90, 90);
         oneButton.setFont(new Font("Arial",Font.BOLD,30));
         oneButton.addActionListener(this);
         jf.add(oneButton);
         oneButton.setBackground(Color.GRAY);
 
         twoButton=new JButton("2");
-        twoButton.setBounds(180, 520, 90, 90);
+        twoButton.setBounds(180, 540, 90, 90);
         twoButton.setFont(new Font("Arial",Font.BOLD,30));
         twoButton.addActionListener(this);
         jf.add(twoButton);
@@ -187,13 +187,13 @@ public class Calculator implements ActionListener {
 
         threeButton=new JButton("3");
         threeButton.setFont(new Font("Arial",Font.BOLD,30));
-        threeButton.setBounds(310, 520, 90, 90);
+        threeButton.setBounds(310, 540, 90, 90);
         jf.add(threeButton);
         threeButton.setBackground(Color.GRAY);
         threeButton.addActionListener(this);
 
         substractionButton=new JButton("-");
-        substractionButton.setBounds(440, 520, 90, 90);
+        substractionButton.setBounds(440, 540, 90, 90);
         substractionButton.setFont(new Font("Arial",Font.BOLD,30));
         substractionButton.addActionListener(this);
         jf.add(substractionButton);
@@ -306,8 +306,9 @@ public class Calculator implements ActionListener {
             displayLabel.setText("");
         }else if (e.getSource() == squareButton){
             firstnumber = Double.parseDouble(displayLabel.getText());
-            operator = "x²";
             displayLabel.setText("");
+            result  = firstnumber*firstnumber;
+            displayLabel.setText(String.valueOf(result));
         }
         else if (e.getSource() == equalButton){
             secondnumber = Double.parseDouble(displayLabel.getText());
@@ -321,10 +322,6 @@ public class Calculator implements ActionListener {
                 case "x":
                     result = firstnumber * secondnumber;
                     break;
-                case "x²":
-                    secondnumber = firstnumber;
-                    result = firstnumber*secondnumber;
-                    break;
                 case "/":
                     if(secondnumber == 0){
                         displayLabel.setText("error");
@@ -334,7 +331,8 @@ public class Calculator implements ActionListener {
                     }
                     break;
                 
-            }firstnumber = result;
+            }
+            firstnumber = result;
             displayLabel.setText(String.valueOf(result));
         }
     }
