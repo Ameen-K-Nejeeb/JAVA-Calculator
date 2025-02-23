@@ -332,6 +332,7 @@ public class Calculator implements ActionListener {
                     }
                     break;
                 
+                    
             }
             firstnumber = result;
             displayLabel.setText(String.valueOf(result));
