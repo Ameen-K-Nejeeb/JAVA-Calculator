@@ -317,12 +317,15 @@ public class Calculator implements ActionListener {
                 case "+":
                     result = firstnumber + secondnumber;
                     break;
-                case "-":
-                    result = firstnumber - secondnumber;
-                    break;
+
                 case "x":
                     result = firstnumber * secondnumber;
                     break;
+
+                case "-":
+                    result = firstnumber - secondnumber;
+                    break;
+
                 case "/":
                     if(secondnumber == 0){
                         displayLabel.setText("---error---");
